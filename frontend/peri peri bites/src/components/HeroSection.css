@@ -1,0 +1,145 @@
+.hero-section {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  padding: 6rem 2rem;
+  gap: 3rem;
+  min-height: calc(100vh - 80px);
+  background: linear-gradient(135deg, #fafafa 0%, #ffffff 100%);
+}
+
+.hero-content {
+  flex: 1;
+  max-width: 700px;
+  padding-left: 2rem;
+}
+
+.hero-badges {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.5rem 1.2rem;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.badge-spicy {
+  background-color: #ffe5cc;
+  color: #ff6b35;
+}
+
+.badge-natural {
+  background-color: #ccf0e0;
+  color: #22a86b;
+}
+
+.hero-headline {
+  margin-bottom: 1.5rem;
+}
+
+.hero-headline h1 {
+  font-size: 4.5rem;
+  font-weight: 700;
+  color: #000;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.2;
+  letter-spacing: -1px;
+}
+
+.hero-headline .highlight {
+  color: #ff6b35;
+}
+
+.hero-description {
+  font-size: 1.15rem;
+  color: #666;
+  line-height: 1.8;
+  margin-bottom: 2.5rem;
+  max-width: 550px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.btn {
+  padding: 1rem 2.5rem;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background-color: #ff6b35;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #e5591e;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: #000;
+  border: 2.5px solid #000;
+}
+
+.btn-secondary:hover {
+  background-color: #000;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.hero-ratings {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.stars {
+  font-size: 1.2rem;
+  color: #ff6b35;
+  letter-spacing: 2px;
+}
+
+.rating-text {
+  color: #666;
+  font-size: 0.95rem;
+  margin: 0;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    flex-direction: column;
+    padding: 2rem 1rem;
+    min-height: auto;
+  }
+
+  .hero-headline h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+}

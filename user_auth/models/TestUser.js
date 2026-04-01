@@ -1,0 +1,30 @@
+const mongoose = require("mongoose");
+
+const testUserSchema = new mongoose.Schema({
+    name: {
+        type: String,
+        required: [true, "Name is required"],
+        minlength: 3
+    },
+    email: {
+        type: String,
+        required: [true, "Email is required"],
+        lowercase: true,
+        unique: true
+    },
+    password: {
+        type: String,
+        required: [true, "Password is required"],
+        minlength: 5
+    },
+    role: {
+        type: String,
+        enum: ["Admin", "Emp", "Customer"],
+        default: "Customer"
+    }
+},
+{timestamps: true}
+);
+
+// This model is for TEST USERS only (seeded via seedDatabase.js)
+module.exports = mongoose.model("TestUser", testUserSchema);
