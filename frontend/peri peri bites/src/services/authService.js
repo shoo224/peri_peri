@@ -3,7 +3,10 @@
 const API_ROOT = (typeof window !== 'undefined' && window.__API_BASE_URL)
   || import.meta.env.VITE_API_BASE_URL
   || 'http://localhost:5000';
-const API_BASE_URL = `${API_ROOT.replace(/\/$/, '')}/api/auth`;
+// Normalize root: remove trailing slash and strip a trailing '/api' if present
+let normalizedRoot = API_ROOT.replace(/\/$/, '');
+normalizedRoot = normalizedRoot.replace(/\/api$/i, '');
+const API_BASE_URL = `${normalizedRoot}/api/auth`;
 
 export const registerUser = async (userData) => {
   try {

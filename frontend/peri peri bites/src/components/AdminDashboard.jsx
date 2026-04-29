@@ -18,9 +18,11 @@ export default function AdminDashboard(){
   const fetchOrders = async ()=>{
     setLoading(true);
     try{
-      const API_ROOT = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
+      const API_ROOT = (typeof window !== 'undefined' && window.__API_BASE_URL) || import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
       const token = JSON.parse(localStorage.getItem('user') || '{}').token;
-      const resp = await fetch(`${API_ROOT.replace(/\/$/, '')}/api/admin/manual-orders`, { headers: { Authorization: token ? `Bearer ${token}` : '' } });
+      let root = API_ROOT.replace(/\/$/, '');
+      root = root.replace(/\/api$/i, '');
+      const resp = await fetch(`${root}/api/admin/manual-orders`, { headers: { Authorization: token ? `Bearer ${token}` : '' } });
       const data = await resp.json();
       if(!resp.ok) throw new Error(data.message||'Failed');
       setOrders(data || []);
@@ -32,9 +34,11 @@ export default function AdminDashboard(){
 
   const verify = async (requestId)=>{
     try{
-      const API_ROOT = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
+      const API_ROOT = (typeof window !== 'undefined' && window.__API_BASE_URL) || import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
       const token = JSON.parse(localStorage.getItem('user') || '{}').token;
-      const resp = await fetch(`${API_ROOT.replace(/\/$/, '')}/api/admin/manual-orders/${requestId}/verify`, { method: 'POST', headers: { Authorization: token ? `Bearer ${token}` : '' } });
+      let root = API_ROOT.replace(/\/$/, '');
+      root = root.replace(/\/api$/i, '');
+      const resp = await fetch(`${root}/api/admin/manual-orders/${requestId}/verify`, { method: 'POST', headers: { Authorization: token ? `Bearer ${token}` : '' } });
       const data = await resp.json();
       if(!resp.ok) throw new Error(data.message||'Failed');
       fetchOrders();
@@ -44,9 +48,11 @@ export default function AdminDashboard(){
   const rejectRequest = async (requestId) => {
     try {
       const reason = window.prompt('Enter rejection reason (optional):');
-      const API_ROOT = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
+      const API_ROOT = (typeof window !== 'undefined' && window.__API_BASE_URL) || import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
       const token = JSON.parse(localStorage.getItem('user') || '{}').token;
-      const resp = await fetch(`${API_ROOT.replace(/\/$/, '')}/api/admin/manual-orders/${requestId}/reject`, {
+      let root = API_ROOT.replace(/\/$/, '');
+      root = root.replace(/\/api$/i, '');
+      const resp = await fetch(`${root}/api/admin/manual-orders/${requestId}/reject`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Authorization: token ? `Bearer ${token}` : '' },
         body: JSON.stringify({ reason })
