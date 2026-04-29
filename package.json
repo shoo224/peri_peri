@@ -1,0 +1,12 @@
+{
+  "name": "peri-peri-root",
+  "version": "1.0.0",
+  "private": true,
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "cd user_auth && npm ci && cd .. && cd \"frontend/peri peri bites\" && npm ci && npm run build",
+    "start": "node user_auth/server.js"
+  }
+}
