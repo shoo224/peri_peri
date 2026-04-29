@@ -1,0 +1,10 @@
+.products-section { padding: 28px; }
+.products-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:16px; }
+.product-card { border:1px solid #eee; padding:12px; border-radius:8px; display:flex; justify-content:space-between; align-items:center; background:#fff; }
+.product-body { display:flex; flex-direction:column; }
+.product-name { font-weight:600; }
+.product-price { color:#777; margin-top:6px; }
+.product-actions { display:flex; align-items:center; gap:8px; }
+.btn.small { padding:6px 10px; border-radius:6px; border:1px solid #ddd; cursor:pointer; }
+.btn.small.primary { background:#ff6b35; color:#fff; border:none; }
+.qty { min-width:28px; text-align:center; }

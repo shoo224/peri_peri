@@ -1,0 +1,17 @@
+[
+  {
+    "id": "item1",
+    "name": "250 grams of Crunch",
+    "price": 89.00
+  },
+  {
+    "id": "item2",
+    "name": "500 grams of Crunch",
+    "price": 149.00
+  },
+  {
+    "id": "item3",
+    "name": "1000 grams of Crunch",
+    "price": 289.00
+  }
+]

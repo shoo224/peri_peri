@@ -22,6 +22,24 @@ const testUserSchema = new mongoose.Schema({
         enum: ["Admin", "Emp", "Customer"],
         default: "Customer"
     }
+    ,
+    orders: [
+        {
+            items: [
+                {
+                    productId: { type: String },
+                    name: { type: String },
+                    qty: { type: Number, default: 1 },
+                    price: { type: Number, default: 0 }
+                }
+            ],
+            subtotal: { type: Number, default: 0 },
+            tax: { type: Number, default: 0 },
+            total: { type: Number, default: 0 },
+            status: { type: String, default: 'Pending' },
+            createdAt: { type: Date, default: Date.now }
+        }
+    ]
 },
 {timestamps: true}
 );

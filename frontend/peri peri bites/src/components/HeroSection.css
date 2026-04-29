@@ -6,7 +6,7 @@
   padding: 6rem 2rem;
   gap: 3rem;
   min-height: calc(100vh - 80px);
-  background: linear-gradient(135deg, #fafafa 0%, #ffffff 100%);
+  background: transparent;
 }
 
 .hero-content {

@@ -1,4 +1,53 @@
 .homepage {
   background-color: #f8f8f8;
   min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+/* homepage-only blurred watermark */
+.homepage::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url('../assets/peri_peri_bg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  filter: blur(4px) contrast(0.98) saturate(0.95);
+  transform: scale(1.02);
+  opacity: 0.28; /* slightly stronger for homepage */
+  pointer-events: none;
+  z-index: 0; /* behind page content */
+}
+
+/* subtle overlay to soften areas and simulate watermark */
+.homepage::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(rgba(255,255,255,0.02), rgba(255,255,255,0.02));
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ensure content sits above watermark */
+.homepage > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Contact section at the end of homepage */
+.contact-section { background: transparent; padding: 3.5rem 1rem 4.5rem; }
+.contact-inner { max-width: 1100px; margin: 0 auto; text-align: center; }
+.contact-inner h3 { font-size: 1.6rem; margin-bottom: 1rem; color: #222; }
+.contact-items { display:flex; gap:1.25rem; justify-content:center; align-items:center; flex-wrap:wrap; }
+.contact-item { display:flex; gap:0.75rem; align-items:center; background:#fff; padding:0.8rem 1rem; border-radius:10px; box-shadow:0 6px 18px rgba(0,0,0,0.06); text-decoration:none; color:inherit; }
+.contact-item svg { flex:0 0 28px; }
+.contact-label { font-weight:600; color:#333; }
+
+@media (max-width:640px){
+  .contact-items { flex-direction:column; }
+  .contact-item { width:100%; justify-content:center; }
 }

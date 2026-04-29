@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { loginUser } from '../services/authService';
 import './LoginForm.css';
@@ -10,6 +10,14 @@ export default function LoginForm() {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState('');
   const navigate = useNavigate();
+
+  useEffect(() => {
+    // ensure login page starts with no logged-in user
+    try {
+      localStorage.removeItem('user');
+      window.dispatchEvent(new Event('userLoggedOut'));
+    } catch (e) {}
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -34,6 +42,9 @@ export default function LoginForm() {
       
       // Store user data in localStorage
       localStorage.setItem('user', JSON.stringify(response));
+
+      // notify other components (Navbar) that user logged in
+      try { window.dispatchEvent(new Event('userLoggedIn')); } catch (e) {}
       
       // Redirect to home after 1.5 seconds
       setTimeout(() => {

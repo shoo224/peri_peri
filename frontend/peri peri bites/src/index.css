@@ -36,6 +36,10 @@ body {
   min-height: 100vh;
 }
 
+/* global watermark background for all pages */
+/* global watermark placed on #root to ensure correct stacking above body */
+#root { position: relative; }
+
 button,
 input,
 textarea,

@@ -1,0 +1,23 @@
+[
+  {
+    "name": "Asha",
+    "location": "Mumbai",
+    "date": "2026-04-12",
+    "text": "Loved the peri peri sauce — spicy and tangy! Will order again.",
+    "stars": 5
+  },
+  {
+    "name": "Ravi",
+    "location": "Bengaluru",
+    "date": "2026-03-28",
+    "text": "Great flavours and fast delivery. Portions were generous.",
+    "stars": 4
+  },
+  {
+    "name": "Meera",
+    "location": "Chennai",
+    "date": "2026-02-05",
+    "text": "Good taste but packaging could be improved.",
+    "stars": 4
+  }
+]
