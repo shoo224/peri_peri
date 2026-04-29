@@ -10,7 +10,26 @@ const authRoutes = require("./routes/authRoutes");
 const manualPaymentRoutes = require("./routes/manualPaymentRoutes");
 const adminRoutes = require("./routes/adminRoutes");
 
-app.use(cors());
+const FRONTEND_URL = process.env.FRONTEND_URL || 'https://peri-peri-fyi9n2el4-shoo224s-projects.vercel.app';
+
+const allowedOrigins = [
+	FRONTEND_URL,
+	'http://localhost:5173',
+	'http://localhost:3000'
+];
+
+app.use(cors({
+	origin: function (origin, callback) {
+		// allow requests with no origin (like curl, Postman, server-to-server)
+		if (!origin) return callback(null, true);
+		if (allowedOrigins.indexOf(origin) !== -1) {
+			return callback(null, true);
+		}
+		return callback(new Error('CORS policy: This origin is not allowed'));
+	},
+	credentials: true
+}));
+
 app.use(express.json());
 
 // simple health check
