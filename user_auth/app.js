@@ -10,9 +10,6 @@ const app = express();
 
 app.use(cors());
 
-// Optional: handle preflight explicitly (helps in some cases)
-app.options("*", cors());
-
 app.use(express.json());
 
 // Routes
