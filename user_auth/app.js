@@ -10,7 +10,7 @@ const authRoutes = require("./routes/authRoutes");
 const manualPaymentRoutes = require("./routes/manualPaymentRoutes");
 const adminRoutes = require("./routes/adminRoutes");
 
-const FRONTEND_URL = process.env.FRONTEND_URL || 'https://peri-peri-fyi9n2el4-shoo224s-projects.vercel.app';
+const FRONTEND_URL = process.env.FRONTEND_URL || 'https://peri-peri-65bf.vercel.app';
 
 const allowedOrigins = [
 	FRONTEND_URL,
